@@ -1,11 +1,11 @@
-// Hide everything on the existing page
-document.documentElement.innerHTML = ''; // Clears the entire page
+// Hide existing page content
+document.body.innerHTML = '';
+document.body.style.margin = '0'; // reset margin
 
-// Create <style> for shutdown notice
+// Create and insert CSS styles
 const style = document.createElement('style');
 style.textContent = `
   body {
-    margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -57,8 +57,9 @@ style.textContent = `
     }
   }
 `;
+document.head.appendChild(style);
 
-// Create container element
+// Create the message container
 const container = document.createElement('div');
 container.className = 'container';
 container.innerHTML = `
@@ -71,8 +72,5 @@ container.innerHTML = `
   <p class="studio">— Waystar Studio</p>
 `;
 
-// Inject new body with message
-document.head.appendChild(style);
-const body = document.createElement('body');
-body.appendChild(container);
-document.documentElement.appendChild(body);
+// Add container to body
+document.body.appendChild(container);
