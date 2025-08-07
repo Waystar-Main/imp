@@ -53,3 +53,6 @@
     showShutdownPage();
   }
 })();
+
+
+console.log("Website has been taken Down!!")
